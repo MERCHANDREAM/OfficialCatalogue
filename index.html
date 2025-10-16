@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchandream - Catálogo para Clubs y Peñas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007bff;
+            --primary-dark: #0056b3;
+            --primary-darker: #004085;
+            --primary-light: #4dabf7;
+            --primary-lighter: #c2e0ff;
+            --secondary: #6c757d;
+            --accent: #17a2b8;
+            --white: #ffffff;
+            --light-bg: #f8f9fa;
+            --text-dark: #343a40;
+            --text-light: #6c757d;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            color: var(--text-dark);
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-svg {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-header {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-dark);
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+            background-color: var(--primary-lighter);
+        }
+
+        /* Contact Info Section */
+        .contact-info-section {
+            padding: 3rem 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background-color: var(--light-bg);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-icon {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .contact-item h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 4rem 0;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 123, 255, 0.15);
+        }
+
+        .category-image {
+            height: 180px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.08);
+        }
+
+        .category-info {
+            padding: 1.5rem;
+        }
+
+        .category-info h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .category-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 2rem 0 4rem;
+            display: none;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .back-button:hover {
+            color: var(--primary-dark);
+            transform: translateX(-3px);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.12);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.2rem;
+        }
+
+        .product-info h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-darker) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo .logo-svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .footer-logo .logo-text {
+            color: var(--white);
+            -webkit-text-fill-color: var(--white);
+            background: none;
+        }
+
+        .footer-contact {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 1.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .categories-grid, .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-svg">M</div>
+                <div class="logo-text">Merchandream</div>
+            </div>
+            <div class="contact-header">
+                <p>Email: info@merchandream.com | Tel: +34 912 345 678</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Impulsa los Ingresos de tu Club o Peña</h1>
+            <p>Descubre nuestra exclusiva gama de productos de merchandising de alta calidad. Vende a tus aficionados y genera ingresos adicionales para tu organización.</p>
+            <a href="#catalogo" class="cta-button">Ver Catálogo</a>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-info-section">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">@</div>
+                    <h3>Email</h3>
+                    <p>info@merchandream.com</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h3>Teléfono</h3>
+                    <p>+34 912 345 678</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕒</div>
+                    <h3>Horario</h3>
+                    <p>Lun - Vie: 9:00 - 18:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="catalogo">
+        <div class="container">
+            <h2 class="section-title">Nuestras Categorías de Productos</h2>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="productsSection">
+        <div class="container">
+            <button class="back-button" id="backButton">← Volver al catálogo</button>
+            <h2 class="section-title" id="productsTitle">Productos</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-svg">M</div>
+                    <div class="logo-text">Merchandream</div>
+                </div>
+                <div class="footer-contact">
+                    <p>Email: info@merchandream.com | Tel: +34 912 345 678</p>
+                    <p>Especialistas en merchandising para clubs y peñas deportivas</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 Merchandream. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data
+        const categories = [
+            {
+                id: "cristaleria",
+                name: "Cristalería Personalizada",
+                description: "Vasos, copas y jarras de alta calidad con personalización de tu club.",
+                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1089&q=80",
+                products: [
+                    {
+                        name: "Vaso de Cerámica Premium",
+                        description: "Vaso de 400ml con asa, ideal para cerveza o refrescos. Personalizable con logo y colores del club.",
+                        image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    },
+                    {
+                        name: "Jarra de Cristal Templado",
+                        description: "Jarra de 1L con diseño ergonómico y base estable. Perfecta para eventos y celebraciones.",
+                        image: "https://images.unsplash.com/photo-1595272566580-6b5354024c59?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    },
+                    {
+                        name: "Set de Copas de Vidrio",
+                        description: "Set de 4 copas de vino con grabado laser para el escudo de tu club. Elegancia y distinción.",
+                        image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    },
+                    {
+                        name: "Taza Térmica con Tapa",
+                        description: "Taza de acero inoxidable con aislamiento térmico. Mantiene bebidas calientes o frías por horas.",
+                        image: "https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    }
+                ]
+            },
+            {
+                id: "textil",
+                name: "Textil y Ropa",
+                description: "Camisetas, sudaderas y gorras con los colores e insignias de tu organización.",
+                image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                products: [
+                    {
+                        name: "Camiseta Técnica Deportiva",
+                        description: "Camiseta de poliéster de alta calidad con tecnología de secado rápido. Ideal para partidos y entrenamientos.",
+                        image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    },
+                    {
+                        name: "Sudadera con Capucha",
+                        description: "Sudadera de algodón premium con capucha y bolsillo canguro. Perfecta para días frescos en el estadio.",
+                        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                    },
+                    {
+                        name: "Gorra Ajustable Bordada",
+                        description: "Gorra de diseño moderno con ajuste universal. Bordado de alta definición con el escudo del club.",
+                        image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80"
+                    },
+                    {
+                        name: "Bufanda de Microfibra",
+                        description: "Bufanda ligera y suave con estampado de alta calidad. Esencial para los aficionados en climas fríos.",
+                        image: "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    }
+                ]
+            },
+            {
+                id: "tecnologia",
+                name: "Artículos Tecnológicos",
+                description: "Productos tecnológicos útiles y personalizados para los aficionados modernos.",
+                image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                products: [
+                    {
+                        name: "Power Bank Personalizado",
+                        description: "Batería externa de 10000mAh con cargador rápido. Incluye grabado laser del escudo del club.",
+                        image: "https://images.unsplash.com/photo-1609592810794-3c033c144862?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80"
+                    },
+                    {
+                        name: "USB con Logo Grabado",
+                        description: "Memoria USB de 32GB con diseño exclusivo y grabado del escudo. Ideal para contenido exclusivo del club.",
+                        image: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+                    },
+                    {
+                        name: "Auriculares Inalámbricos",
+                        description: "Auriculares Bluetooth con estuche de carga personalizado con los colores del equipo.",
+                        image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    },
+                    {
+                        name: "Soporte para Móvil",
+                        description: "Soporte ajustable para smartphone con base personalizada. Perfecto para ver partidos en streaming.",
+                        image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    }
+                ]
+            },
+            {
+                id: "accesorios",
+                name: "Accesorios Varios",
+                description: "Diversos artículos de merchandising para completar la experiencia del aficionado.",
+                image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
+                products: [
+                    {
+                        name: "Llavero Metálico con Escudo",
+                        description: "Llavero de acero inoxidable con grabado laser de alta precisión. Duradero y elegante.",
+                        image: "https://images.unsplash.com/photo-1604644401890-0bd678c83788?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    },
+                    {
+                        name: "Bolsa Térmica para Comida",
+                        description: "Bolsa térmica con compartimentos para mantener comida y bebida. Ideal para picnics y desplazamientos.",
+                        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    },
+                    {
+                        name: "Paraguas Plegable",
+                        description: "Paraguas compacto y resistente con estampado a todo color. Protección esencial para días de lluvia.",
+                        image: "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80"
+                    },
+                    {
+                        name: "Mochila Deportiva",
+                        description: "Mochila ergonómica con múltiples compartimentos y sistema hidratación. Perfecta para entrenamientos.",
+                        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    }
+                ]
+            }
+        ];
+
+        // DOM Elements
+        const categoriesGrid = document.getElementById('categoriesGrid');
+        const productsSection = document.getElementById('productsSection');
+        const productsGrid = document.getElementById('productsGrid');
+        const productsTitle = document.getElementById('productsTitle');
+        const backButton = document.getElementById('backButton');
+
+        // Initialize categories
+        function initCategories() {
+            categoriesGrid.innerHTML = '';
+            
+            categories.forEach(category => {
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card fade-in';
+                categoryCard.innerHTML = `
+                    <div class="category-image">
+                        <img src="${category.image}" alt="${category.name}">
+                    </div>
+                    <div class="category-info">
+                        <h3>${category.name}</h3>
+                        <p>${category.description}</p>
+                    </div>
+                `;
+                
+                categoryCard.addEventListener('click', () => showProducts(category));
+                categoriesGrid.appendChild(categoryCard);
+            });
+        }
+
+        // Show products for a specific category
+        function showProducts(category) {
+            productsTitle.textContent = category.name;
+            productsGrid.innerHTML = '';
+            
+            category.products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card fade-in';
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h4>${product.name}</h4>
+                        <p>${product.description}</p>
+                    </div>
+                `;
+                productsGrid.appendChild(productCard);
+            });
+            
+            // Show products section and hide categories
+            document.querySelector('.categories').style.display = 'none';
+            productsSection.style.display = 'block';
+            
+            // Scroll to products section
+            productsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Back to categories
+        backButton.addEventListener('click', () => {
+            productsSection.style.display = 'none';
+            document.querySelector('.categories').style.display = 'block';
+            document.querySelector('.categories').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', initCategories);
+    </script>
+</body>
+</html>
