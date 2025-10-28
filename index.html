@@ -764,6 +764,7 @@
         }
 
         /* Product Detail Modal */
+        /* Product Detail Modal - Carousel Modificado */
         .product-modal {
             display: none;
             position: fixed;
@@ -820,25 +821,34 @@
 
         .carousel-container {
             position: relative;
-            height: 300px;
+            height: 400px;
+            /* Aumentado para mejor visualización */
             overflow: hidden;
             border-radius: 8px;
+            background-color: var(--light-bg);
+            /* Fondo para imágenes con transparencia */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .carousel-slide {
             display: none;
             width: 100%;
             height: 100%;
+            align-items: center;
+            justify-content: center;
         }
 
         .carousel-slide.active {
-            display: block;
+            display: flex;
         }
 
         .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            /* Cambiado de 'cover' a 'contain' para mostrar imágenes completas */
         }
 
         .carousel-button {
@@ -857,6 +867,7 @@
             cursor: pointer;
             font-size: 1.2rem;
             transition: var(--transition);
+            z-index: 5;
         }
 
         .carousel-button:hover {
@@ -1135,6 +1146,34 @@
             object-fit: contain;
             /* Asegura que la imagen se ajuste bien */
         }
+
+        /* PDF Viewer Styles */
+        .pdf-viewer {
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .pdf-viewer iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Responsive adjustments for PDF viewer */
+        @media (max-width: 768px) {
+            .pdf-viewer iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pdf-viewer iframe {
+                height: 300px;
+            }
+        }
     </style>
 </head>
 
@@ -1347,42 +1386,20 @@
         <div class="container">
             <div class="full-catalog-content">
                 <h2>CATÁLOGO COMPLETO</h2>
-                <p>¿No encuentras lo que buscas? Tenemos muchos más productos disponibles en nuestro catálogo completo.
+                <p>¿No encuentras lo que buscas? Explora nuestro catálogo completo con todos los productos disponibles.
                 </p>
-                <div class="catalog-badge">Próximamente disponible</div>
-                <p>Estamos preparando nuestro catálogo completo con todos los productos disponibles. Muy pronto podrás
-                    explorar toda nuestra gama de merchandising personalizado.</p>
-                <a href="#contacto" class="cta-button">Ser Notificado</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- More Products Section -->
-    <section class="more-products">
-        <div class="container">
-            <div class="more-products-content">
-                <h2>¿Necesitas algo diferente?</h2>
-                <p>Tenemos una amplia variedad de productos adicionales perfectos para regalar a socios y aficionados.
-                    No dudes en consultarnos sobre cualquier producto que no encuentres en nuestro catálogo.</p>
-
-                <div class="products-list">
-                    <div class="product-tag">Camisetas y ropa deportiva</div>
-                    <div class="product-tag">Bolsas y mochilas</div>
-                    <div class="product-tag">Gorras y sombreros</div>
-                    <div class="product-tag">Paraguas</div>
-                    <div class="product-tag">Bufandas</div>
-                    <div class="product-tag">Pulseras y llaveros</div>
-                    <div class="product-tag">Pendrives personalizados</div>
-                    <div class="product-tag">Power banks</div>
-                    <div class="product-tag">Botellas deportivas</div>
-                    <div class="product-tag">Material de escritura</div>
-                    <div class="product-tag">Artículos de papelería</div>
-                    <div class="product-tag">Productos ecológicos</div>
+                <!-- Visor de PDF -->
+                <div class="pdf-viewer">
+                    <iframe src="./assets/Catalogo01.pdf" width="100%" height="600px"
+                        style="border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        Tu navegador no soporta la visualización de PDF.
+                        <a href="./assets/Catalogo01.pdf" download>Descargar catálogo</a>
+                    </iframe>
                 </div>
 
-                <p><strong>¡Pregúntanos sin compromiso!</strong> Estamos aquí para ayudarte a encontrar el producto
-                    perfecto para tu club o peña.</p>
-                <a href="#contacto" class="cta-button">Consultar Productos Adicionales</a>
+                <p style="margin-top: 2rem;">También puedes descargar el catálogo completo para consultarlo offline.</p>
+                <a href="./assets/Catalogo01.pdf" download class="cta-button">Descargar Catálogo PDF</a>
             </div>
         </div>
     </section>
@@ -1804,12 +1821,12 @@
                         name: "Cesful",
                         description: "Bloc Notas RPET 300D | 100 Hojas | Tapas Duras con Cremallera | Diseño Ecológico | Color Gris/Negro",
                         images: [
-                            "./assets/08.Bidon/01.CESFUL/Pic01.png",
-                            "./assets/08.Bidon/01.CESFUL/Pic02.png",
-                            "./assets/08.Bidon/01.CESFUL/Pic03.png",
-                            "./assets/08.Bidon/01.CESFUL/Pic04.png",
-                            "./assets/08.Bidon/01.CESFUL/Pic05.png",
-                            "./assets/08.Bidon/01.CESFUL/Caracteristicas.png"
+                            "./assets/09.BlocDeNotas/01.CESFUL/Pic01.png",
+                            "./assets/09.BlocDeNotas/01.CESFUL/Pic02.png",
+                            "./assets/09.BlocDeNotas/01.CESFUL/Pic03.png",
+                            "./assets/09.BlocDeNotas/01.CESFUL/Pic04.png",
+                            "./assets/09.BlocDeNotas/01.CESFUL/Pic05.png",
+                            "./assets/09.BlocDeNotas/01.CESFUL/Caracteristicas.png"
                         ],
                         colors: ["Gris"]
                     },
@@ -1817,9 +1834,9 @@
                         name: "Drizux",
                         description: "Libreta Multifunción Corcho | Soporte Dispositivos en Bambú + 100 Hojas | Cierre Elástico | Materiales Naturales",
                         images: [
-                            "./assets/08.Bidon/02.DRIZAX/Pic01.png",
-                            "./assets/08.Bidon/02.DRIZAX/Pic02.png",
-                            "./assets/08.Bidon/02.DRIZAX/Caracteristicas.png"
+                            "./assets/09.BlocDeNotas/02.DRIZAX/Pic01.png",
+                            "./assets/09.BlocDeNotas/02.DRIZAX/Pic02.png",
+                            "./assets/09.BlocDeNotas/02.DRIZAX/Caracteristicas.png"
                         ],
                         colors: ["Corcho natural"]
                     }
@@ -1983,6 +2000,7 @@
         }
 
         // Helper function to get color hex values
+        // Helper function to get color hex values
         function getColorHex(colorName) {
             const colorMap = {
                 "Blanco": "#ffffff",
@@ -2005,7 +2023,20 @@
                 "Cristal azul": "rgba(0,123,255,0.3)",
                 "Cristal verde": "rgba(40,167,69,0.3)",
                 "Acero inoxidable": "#e0e0e0",
-                "Color personalizado": "linear-gradient(45deg, #ff0000, #00ff00, #0000ff)"
+                "Color personalizado": "linear-gradient(45deg, #ff0000, #00ff00, #0000ff)",
+                // Nuevos colores añadidos
+                "Azul claro": "#87ceeb",
+                "Fucsia": "#ff00ff",
+                "Marino": "#001f3f",
+                "Rosa": "#ffc0cb",
+                "Gris": "#808080",
+                "Metalizado": "#a8a9ad",
+                "Corcho natural": "#d2b48c",
+                "Natural": "#f5f5dc",
+                "Metálico": "#d4d4d4",
+                "Madera natural": "#deb887",
+                "Único modelo": "#666666",
+                "Natural madera": "#deb887"
             };
             return colorMap[colorName] || "#cccccc";
         }
