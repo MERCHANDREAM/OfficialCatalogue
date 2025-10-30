@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Merchandream - Catálogo para Clubs y Peñas</title>
 
     <!-- Favicon -->
@@ -1174,6 +1174,95 @@
                 height: 300px;
             }
         }
+
+        /* Estilos para los enlaces en las secciones de contacto */
+        .contact-header a,
+        .contact-item a,
+        .footer-contact a,
+        .modal-contact-cta a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-header a:hover,
+        .contact-item a:hover,
+        .footer-contact a:hover,
+        .modal-contact-cta a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo específico para el footer */
+        .footer-contact a {
+            color: var(--white);
+        }
+
+        /* Fix para evitar scroll horizontal en móvil */
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 15px;
+        }
+
+        /* Asegurar que las imágenes no causen overflow */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Fix específico para el carousel en móvil */
+        @media (max-width: 768px) {
+            .carousel-container {
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 0 auto;
+            }
+
+            .featured-image img {
+                max-width: 100%;
+            }
+        }
+
+        /* Asegurar que los elementos flex no causen overflow */
+        .header-content,
+        .featured-content,
+        .budget-features,
+        .contact-info {
+            flex-wrap: wrap;
+        }
+
+        /* Fix para elementos que puedan salirse */
+        .hero-content,
+        .budget-content,
+        .full-catalog-content {
+            width: 100%;
+        }
+
+        /* Prevenir overflow en elementos absolutos */
+        .featured-badge {
+            right: 10px;
+            left: auto;
+        }
+
+        @media (max-width: 480px) {
+            .featured-badge {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin: 1rem auto;
+                display: block;
+                width: fit-content;
+            }
+        }
     </style>
 </head>
 
@@ -1186,7 +1275,8 @@
                 <div class="logo-text">Merchandream</div>
             </div>
             <div class="contact-header">
-                <p>Email: direccion.general@merchandream.es | Tel: +34 605 195 744</p>
+                <p>Email: direccion.general@merchandream.es | Tel: +34 605 195 744 | Web: <a
+                        href="https://merchandream.es">merchandream.es</a></p>
             </div>
         </div>
     </header>
@@ -1339,6 +1429,11 @@
                     <div class="contact-icon">📞</div>
                     <h3>Teléfono</h3>
                     <p>+34 605 195 744</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <h3>Web</h3>
+                    <p><a href="https://merchandream.es">merchandream.es</a></p>
                 </div>
             </div>
         </div>
